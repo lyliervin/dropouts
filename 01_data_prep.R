@@ -31,5 +31,14 @@ pop <-
   pop %>% 
   filter(age >= 8 & age <=17)
 
+#showing how to use case_when
+
+pop <- 
+  pop %>% 
+  mutate(scho_level = case_when(years_scho < 6 ~ "low",
+                                years_scho < 10 ~ "med",
+                                TRUE ~ "high"))
+
 #check work
 table(pop$age)
+table(pop$scho_level)
